@@ -1,0 +1,69 @@
+<a href="{{ url_for("index") }}">Home</a>
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for("shortner") }}">Shortner</a>
+        <a href="{{ url_for("history") }}">History</a>
+        <a href="{{ url_for("logout") }}">Logout</a>
+        {% else %}
+        <a href="{{ url_for("register") }}">Register</a>
+        <a href="{{ url_for("login") }}">Login</a>
+        {% endif %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+  border:1px solid rgb(194, 31, 31);
+}
+
+
+td, th {
+  border: 1px solid #6b2215;
+  text-align: left;
+  padding: 8px;
+  
+}
+
+tr {
+  border-bottom: 1px solid rgb(26, 3, 3);
+}
+tr:nth-child(even) {
+  background-color: rgba(112, 168, 241, 0.4);
+  border-bottom: 1px solid #ddd;
+}
+
+th:nth-child(even),td:nth-child(even) {
+  background-color: rgba(179, 235, 106, 0.4);
+}
+</style>
+</head>
+<body>
+
+<h2>History</h2>
+
+<table>
+  <tr>
+    <th style="font-size:25px">Original Url</th>
+    <th style="font-size:25px">Shorten Url</th>
+  </tr>
+  <tr>
+    <td>
+        {% block content %}
+        {%for links in vals %}
+            <p>{{links.original_url}} </p>
+        {% endfor %}
+    </td>
+
+    <td>
+        {%for links in vals %}
+            <p>127.0.0.1:5000/{{links.shorted_url}} </p>
+    {% endfor %}
+    {%endblock%}</td>
+  </tr>  
+</table>
+
+</body>
+</html>
+
+

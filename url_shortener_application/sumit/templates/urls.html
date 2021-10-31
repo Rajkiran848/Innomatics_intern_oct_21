@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+{% block title %}
+Short Url
+{% endblock %}
+{% block content %}
+    <h2>Shorten Url</h2>
+    <form>
+        <input type="text" value="127.0.0.1:5000/{{short_url_display}}" name="input">
+        <button onclick="copy()">Copy text</button>  
+    </form>
+{% endblock %}

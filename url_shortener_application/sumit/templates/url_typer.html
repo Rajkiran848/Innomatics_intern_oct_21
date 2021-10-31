@@ -1,0 +1,16 @@
+{%extends 'layout.html' %}
+
+{% block title %}
+Shorten URL
+{% endblock %}
+
+{% block content %}
+<h1> Enter the Url</h1>
+<form method='POST'>
+    <label for="url" ><Enter the Url: /label>
+    <input type='url' name='in_1' placeholder="www.example.com">
+    <input type='submit'value='submit' >
+</form>
+
+
+{% endblock %}
